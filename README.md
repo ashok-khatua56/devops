@@ -50,7 +50,6 @@ Apache Web Server:
 sudo yum install httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
-
 Add your project inside /var/www/html/
 sudo systemctl stop httpd
 sudo systemctl disable httpd
