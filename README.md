@@ -89,9 +89,9 @@ sudo nano /etc/nginx/nginx.conf
     }
 Add these lines of code after /etc/nginx/default.d/*.conf;
 
-Ansible:
+Ansible:=>
 =======
-sudo apt install -y
+sudo apt install ansible -y
 ansible --version
 1.Create Inventory File-
 touch hosts
@@ -110,4 +110,8 @@ touch create_file.yml
 		state: touch
 		mode: '0644'
 ansible-playbook -i hosts create_file.yml
+
+Roles:
+=====
+ansible-galaxy init nginx-role
 
