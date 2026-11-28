@@ -115,3 +115,4 @@ Roles:
 =====
 ansible-galaxy init nginx-role
 
+#secret vault password= 12345
