@@ -1,0 +1,24 @@
+---
+- name: Using Handlers
+  hosts: aws
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Deploy nginx config File
+      copy:
+        content: "Welcome to Ansible"
+        dest: /var/www/html/index.html
+      notify: Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
+

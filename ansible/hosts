@@ -1,0 +1,4 @@
+[local]
+localhost ansible_connection=local
+[aws]
+ec2 ansible_host=13.49.77 ansible_user=ubuntu

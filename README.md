@@ -89,3 +89,25 @@ sudo nano /etc/nginx/nginx.conf
     }
 Add these lines of code after /etc/nginx/default.d/*.conf;
 
+Ansible:
+=======
+sudo apt install -y
+ansible --version
+1.Create Inventory File-
+touch hosts
+	[local]
+	localhosts ansible_connection=local
+ansible all -i hosts -m ping
+2.Create Playbook file
+touch create_file.yml
+	---
+	- name:Create a file using environment path
+	  hosts: local
+	  task: 
+	    - name: Create ansible_file.txt
+	      file:
+		path: "{{ansible_env.HOME }}/ansible_file.txt"	
+		state: touch
+		mode: '0644'
+ansible-playbook -i hosts create_file.yml
+
