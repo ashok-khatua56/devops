@@ -1,0 +1,17 @@
+---
+  - name: Install nginx only on ubuntu
+    hosts: aws
+    gather_facts: yes
+
+    task:
+      - name: Debuge OS Name
+        debuge: 
+          msg: "OS is {{ ansible_facts['distribution'] }}"
+
+      - name: Install Nginx only if Ubuntu
+        apt:
+          name: nginx
+          state: present
+        when: ansible_facts['distribution'] == "Ubuntu"
+
+# ansible-playbook -i hosts facts-nginx.yml -l aws 

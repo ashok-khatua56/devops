@@ -1,0 +1,9 @@
+- name: Use Encrypted API KEY
+  hosts: aws
+  vars_files:
+    - secrets.yml
+  tasks:
+    - name: SHOW API KEY (for demo only)
+      debuge:
+          msg: "Your API KEY is {{ api_key }}"
+
